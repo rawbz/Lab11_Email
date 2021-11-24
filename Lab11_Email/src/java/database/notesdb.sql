@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS `notesdb`.`user` (
   `last_name` VARCHAR(20) NOT NULL,
   `password` VARCHAR(20) NOT NULL,
   `role` INT(11) NOT NULL,
+  `reset_password_uuid` VARCHAR(20),
   PRIMARY KEY (`email`),
   CONSTRAINT `fk_user_role`
     FOREIGN KEY (`role`)
@@ -34,12 +35,12 @@ CREATE TABLE `note` (
 INSERT INTO `role` VALUES (1, 'system admin');
 INSERT INTO `role` VALUES (2, 'regular user');
 
-INSERT INTO `user` (`email`,`active`,`first_name`,`last_name`,`password`,`role`)
-	VALUES ('rmjbschool+admin@gmail.com', true, 'Admin','Admin', 'password', 1);
-INSERT INTO `user` (`email`,`active`,`first_name`,`last_name`,`password`,`role`)
-	VALUES ('rmjbschool+anne@gmail.com', true, 'Anne','Annerson', 'password', 2);
-INSERT INTO `user` (`email`,`active`,`first_name`,`last_name`,`password`,`role`)
-	VALUES ('rmjbschool+barb@gmail.com', true, 'Barb','Barber', 'password', 2);
+INSERT INTO `user` (`email`,`active`,`first_name`,`last_name`,`password`,`role`, `reset_password_uuid`)
+	VALUES ('rmjbschool+admin@gmail.com', true, 'Admin','Admin', 'password', 1, null);
+INSERT INTO `user` (`email`,`active`,`first_name`,`last_name`,`password`,`role`, `reset_password_uuid`)
+	VALUES ('rmjbschool+anne@gmail.com', true, 'Anne','Annerson', 'password', 2, null);
+INSERT INTO `user` (`email`,`active`,`first_name`,`last_name`,`password`,`role`, `reset_password_uuid`)
+	VALUES ('rmjbschool+barb@gmail.com', true, 'Barb','Barber', 'password', 2, null);
 
 INSERT INTO `note` (`Title`, `Contents`, `Owner`)
     VALUES ('Quote #1', 'Writing is nature''s way of letting you know how sloppy your thinking is.', 'rmjbschool+anne@gmail.com');
