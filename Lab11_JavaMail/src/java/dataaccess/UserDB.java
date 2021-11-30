@@ -3,7 +3,7 @@ package dataaccess;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import models.User;
-import static models.User_.resetPasswordUuid;
+
 
 
 
