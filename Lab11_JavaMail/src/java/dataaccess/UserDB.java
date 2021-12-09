@@ -24,8 +24,7 @@ public class UserDB {
         
         try{
             System.out.println("We are in the userDB, searching for uuid: " + uuid); 
-            User user = em.find(User.class, uuid);
-            
+            User user = (User) em.createNamedQuery("User.findByResetPasswordUuid", User.class).setParameter("resetPasswordUuid", uuid).getSingleResult();
             return user;
         } finally {
             em.close();
